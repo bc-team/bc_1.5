@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 15:55:41
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 16:53:25
          compiled from "skins/system/dtml/it/installer_init.html" */ ?>
-<?php /*%%SmartyHeaderCode:995367519529364ed765738-06029900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21763483152937275b452d3-63931244%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e20405327ebb9d3ee0f01fdd8be09363f89012a4' => 
     array (
       0 => 'skins/system/dtml/it/installer_init.html',
-      1 => 1385390584,
+      1 => 1385394717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '995367519529364ed765738-06029900',
+  'nocache_hash' => '21763483152937275b452d3-63931244',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_529364ed767472_45776339',
+  'unifunc' => 'content_52937275b48f66_71617272',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_529364ed767472_45776339')) {function content_529364ed767472_45776339($_smarty_tpl) {?><div class="installer-wrapper">
+<?php if ($_valid && !is_callable('content_52937275b48f66_71617272')) {function content_52937275b48f66_71617272($_smarty_tpl) {?><div class="installer-wrapper">
     <p>
 	Sembra non vi sia un file
 	<strong>config.cfg</strong>

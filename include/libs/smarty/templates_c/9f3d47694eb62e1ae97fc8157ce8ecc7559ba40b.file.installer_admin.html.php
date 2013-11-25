@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 16:17:24
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 16:54:46
          compiled from "skins/system/dtml/it/installer_admin.html" */ ?>
-<?php /*%%SmartyHeaderCode:83058043452936a04a3b297-35507709%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1912409999529372c6846527-55006164%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9f3d47694eb62e1ae97fc8157ce8ecc7559ba40b' => 
     array (
       0 => 'skins/system/dtml/it/installer_admin.html',
-      1 => 1385390584,
+      1 => 1385394717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '83058043452936a04a3b297-35507709',
+  'nocache_hash' => '1912409999529372c6846527-55006164',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_52936a04a52203_74767178',
+  'unifunc' => 'content_529372c687f3c7_33744306',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_52936a04a52203_74767178')) {function content_52936a04a52203_74767178($_smarty_tpl) {?><div class="installer-wrapper">
+<?php if ($_valid && !is_callable('content_529372c687f3c7_33744306')) {function content_529372c687f3c7_33744306($_smarty_tpl) {?><div class="installer-wrapper">
     <p>
         Benvenuti nella famosa procedura dei cinque minuti per l'installazione
         di beContent! Altrimenti, indicare le seguenti informazioni e sarete

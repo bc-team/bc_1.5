@@ -1,0 +1,17 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_servicecategory</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>id: {$instance->id}</li>
+<li>name: {$instance->name}</li>
+<li>position: {$instance->position}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_servicecategory</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

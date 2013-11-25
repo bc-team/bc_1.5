@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 15:55:55
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-25 16:53:27
          compiled from "skins/system/dtml/it/installer_databaseform.html" */ ?>
-<?php /*%%SmartyHeaderCode:1305011330529364fb5023e6-06443459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2013153689529372772a38e6-59290190%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd48d737f3c07ce7ac98cfd8134ffd72bf697dcef' => 
     array (
       0 => 'skins/system/dtml/it/installer_databaseform.html',
-      1 => 1385390584,
+      1 => 1385394717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1305011330529364fb5023e6-06443459',
+  'nocache_hash' => '2013153689529372772a38e6-59290190',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_529364fb5267e7_07901102',
+  'unifunc' => 'content_529372772db937_80603232',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_529364fb5267e7_07901102')) {function content_529364fb5267e7_07901102($_smarty_tpl) {?><div class="installer-wrapper">
+<?php if ($_valid && !is_callable('content_529372772db937_80603232')) {function content_529372772db937_80603232($_smarty_tpl) {?><div class="installer-wrapper">
     <form  action="installer.php" method="POST">
 	<div>
 		<p>Di seguito puoi inserire i dettagli di connessione al database.

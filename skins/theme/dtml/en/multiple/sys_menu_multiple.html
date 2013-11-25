@@ -1,0 +1,20 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+MULTIPLE TEMPLATE STANDARD; <h1>sys_menu</h1>{if $instances != null || $instance != null}
+<ul>
+{foreach from=$instances item=instance}
+<li>id: {$instance->id}</li>
+<li>entry: {$instance->entry}</li>
+<li>link: {$instance->link}</li>
+<li>position: {$instance->position}</li>
+<li>linked_page: {$instance->linked_page}</li>
+<li>parent: {$instance->parent}</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_menu</h1>
+{/if}
+<!-- MODIFICA QUESTELINEE-->
+
+</div>
+

@@ -1,0 +1,22 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_video</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>id: {$instance->id}</li>
+<li>owner: {$instance->owner}</li>
+<li>filename: {$instance->filename}</li>
+<li>size: {$instance->size}</li>
+<li>filetype: {$instance->filetype}</li>
+<li>title: {$instance->title}</li>
+<li>date: {$instance->date}</li>
+<li>foto: {$instance->foto}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_video</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

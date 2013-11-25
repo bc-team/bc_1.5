@@ -26,35 +26,21 @@ class InitGraphic{
 	 * 
 	 * @param Skin $skin
 	 * @param boolean $hasNews
-     * Costruisce la struttura del front-end.
-     * Utilizza:
-     * frame-public-head: tag html <head>
-     * header e footer: header e footer del tema
-     *
+	 * Costruisce la struttura del front-end.
+	 * Utilizza:
+	 * frame-public-head: tag html <head>
+	 * header e footer: header e footer del tema
+	 *
 	 */
-	public function createGraphic($skin, $hasNews=false)
+	public function createGraphic($skin)
 	{
-        $menuEntity = $GLOBALS['sys_menu'];
-        $newsEntity = $GLOBALS['sys_news'];
-        $menuTemplate = new Skinlet('menu');
-        $menu = new Content($menuEntity,$menuEntity);
-        if($menu != null){
-            $menu->setFilter("parent_id", 0);
-            $menu->setOrderFields("sys_menu_position",'sys_menu_parent',"sys_menu0_position");
-            $menu->apply($menuTemplate);
-        }
-
         /*skinlet frame-public-head: skins/theme/header.html*/
         $head = new Skinlet("frame-public-head");
 
         /*skinlet header: skins/theme/header.html*/
-		$header = new Skinlet("header");
-
-        $newsContent = new Content($newsEntity);
-        $newsContent->setOrderFields('date DESC');
+	$header = new Skinlet("header");
         /*skinlet footer: skins/theme/footer.html*/
         $footer = new Skinlet("footer");
-        $newsContent->apply($footer, 'news');
 
         /*funzionalità breadcrump
 
@@ -74,7 +60,6 @@ class InitGraphic{
 
 
         /*creazione della struttura*/
-        $header->setContent("menu", $menuTemplate->get());
         $skin->setContent("head", $head->get());
         $skin->setContent("header", $header->get());
         $skin->setContent("footer", $footer->get());

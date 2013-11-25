@@ -136,8 +136,8 @@ class File2FolderType extends baseType {
 				}
 					
 				$filename_local = $filename_local.$extension;
-		
-				move_uploaded_file($_FILES[$this->name]['tmp_name'], Config::getInstance()->getConfigurations()['upload_folder']."/$filename_local");
+				$config = Config::getInstance()->getConfigurations();
+				move_uploaded_file($_FILES[$this->name]['tmp_name'], $config['upload_folder']."/$filename_local");
 				if ($this->addslashes) {
 					$filename = addslashes($filename);
 				}

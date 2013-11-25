@@ -72,7 +72,7 @@ foreach (beContent::getInstance()->entities as $k => $v) {
 
 $installation_info["installation_date"] = new DateTime();
 
-file_put_contents(realpath(dirname(__FILE__)) . '/contents/installation_info.cfg', json_encode($installation_info, JSON_PRETTY_PRINT));
+file_put_contents(realpath(dirname(__FILE__)) . '/contents/installation_info.cfg', json_encode($installation_info));
 
 $main = new Skin("system");
 

@@ -119,8 +119,8 @@ class InitGraphic{
         $loggedUser->forceSingle();
         $loggedUser->apply($header);
 
-        $header->setContent('webApp',
-            Config::getInstance()->getConfigurations()["defaultuser"]["webApp"]);
+        $config =  Config::getInstance()->getConfigurations();
+        $header->setContent('webApp',$config["defaultuser"]["webApp"]);
 
         /*
          * skinlet menu_admin: skins/system/menu_admin.html

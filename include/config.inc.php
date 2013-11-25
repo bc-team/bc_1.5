@@ -221,7 +221,7 @@ class Config{
 		}
 		else
 		{
-			$file_data = json_decode(file_get_contents(realpath(dirname(__FILE__))."/../contents/config.cfg"),JSON_PRETTY_PRINT);
+			$file_data = json_decode(file_get_contents(realpath(dirname(__FILE__))."/../contents/config.cfg"),true);
 
 			$this->configurations['database'] =$file_data["database_config"];
 			$this->configurations['defaultuser'] = $file_data["admin_config"];

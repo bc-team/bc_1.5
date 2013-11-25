@@ -1,6 +1,6 @@
 <?php
 require_once(realpath(dirname(__FILE__)).'/libs/smarty/Smarty.class.php');
-require_once(realpath(dirname(__FILE__)).'/view/taglibrary/TagLibrariesFactory.php');
+//require_once(realpath(dirname(__FILE__)).'/view/taglibrary/TagLibrariesFactory.php');
 Class Skin  {
 
 	var
@@ -62,7 +62,7 @@ Class Skin  {
 	}
 
 	function close(){
-		$this->smarty->assign("sys",TagLibrariesFactory::getInstance());
+		//$this->smarty->assign("sys",TagLibrariesFactory::getInstance());
 		$this->smarty->display($this->template_name);
 	}
 	

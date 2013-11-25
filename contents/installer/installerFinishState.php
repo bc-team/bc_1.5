@@ -29,7 +29,7 @@ class InstallerFinishState extends InstallerState {
 
 		$file_return = file_put_contents(
 				realpath(dirname(__FILE__)).'/../../contents/config.cfg',
-				json_encode($this->request_config,JSON_PRETTY_PRINT)
+				json_encode($this->request_config)
 		);
 	}
 

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 
 
@@ -519,8 +519,8 @@ Class Parser {
 		$locale = array(WINDOWS => array("it" => "ita_ita", "en" => "eng_eng","es" => "esp_esp"),
 				LINUX => array("it" => "it_IT", "en" => "en_UK","es" => "es_ES")
 		);
-			
-		return $locale[Config::getInstance()->getConfigurations()['os']][$language];
+		$config=Config::getInstance()->getConfigurations();
+		return $locale[$config['os']][$language];
 	}
 
 	function refineQuery($query, $condition) {

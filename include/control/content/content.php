@@ -92,9 +92,10 @@ Class Content {
 		$this->pager = false;
 		$this->debug = false;
 		$this->order_fields = $this->detectOrderFields();
-		$languages=Config::getInstance()->getConfigurations()['languages'];
+		$config = Config::getInstance()->getConfigurations();
+		$languages=$config['languages'];
 		if (isset($languages)) {
-			foreach (Config::getInstance()->getConfigurations()['languages'] as $k => $v) {
+			foreach ($languages as $k => $v) {
 				$this->languages[$k] = $k;
 			}
 		}
@@ -207,9 +208,9 @@ Class Content {
 				}
 			}
 		}
-
-
-		$template->setContent("skin", Config::getInstance()->getConfigurations()['skin']);
+		
+		$config = Config::getInstance()->getConfigurations();
+		$template->setContent("skin", $config['skin']);
 
 		if (is_array($this->values)) {
 			foreach($this->values as $k => $v) {

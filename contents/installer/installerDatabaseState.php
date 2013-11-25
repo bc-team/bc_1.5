@@ -31,7 +31,7 @@ class InstallerDatabaseState extends InstallerState {
 		$this->request_config['database_config'] = $this->database_config;
 		
 		$file_return = file_put_contents(realpath(dirname(__FILE__)).'/../../contents/config.cfg',
-				json_encode($this->request_config,JSON_PRETTY_PRINT)
+				json_encode($this->request_config)
 		);
 
 		if(! $file_return)
@@ -71,7 +71,7 @@ class InstallerDatabaseState extends InstallerState {
 	}
 
 	public function setInput($arrayInput){
-		
+		var_dump($arrayInput);
 		$this->validData = false;
 		if( file_exists(realpath(dirname(__FILE__)).'/../../contents/config.cfg')){
 			$this->request_config = json_decode(
@@ -87,8 +87,9 @@ class InstallerDatabaseState extends InstallerState {
 				$this->database = $arrayInput["database"];
 				$this->prefix = $arrayInput['prefix'];
 
-				if( DB::testConnection($this->host, $this->database, $this->username, $this->password))
+				if( DB::testConnection($this->host, $this->database, $this->username, $this->password) )
 				{
+					echo 'pippo';
 					$this->validData = true;
 					$this->database_config = array (
 							'username'=>$this->username,

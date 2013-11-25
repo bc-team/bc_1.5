@@ -214,7 +214,8 @@ Class Auth {
 				                 LIMIT 1");
 				
 				if (isset($lastlogin)) {
-					$_SESSION['user']['lastlogin'] = $lastlogin[0]['date'];
+					$lastLogin =  $lastlogin[0];
+					$_SESSION['user']['lastlogin'] =$lastLogin['date'];
 				} else {
 					$_SESSION['user']['lastlogin'] = "";
 				}
@@ -353,10 +354,11 @@ Class Auth {
 		
 		$_SESSION['user']['admin'] = false;
 		
+		$config = Config::getInstance()->getConfigurations();
 		if (is_array($_SESSION['user']['services'])) {
 			foreach($_SESSION['user']['services'] as $k => $v) {
 			
-				if($v['id_sys_group'] == Config::getInstance()->getConfigurations()['admin_usergroup']) {				
+				if($v['id_sys_group'] == $config['admin_usergroup']) {				
 					$_SESSION['user']['admin'] = true;
 				}
 			}

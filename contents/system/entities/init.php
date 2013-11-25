@@ -5,6 +5,7 @@ require_once realpath(dirname(__FILE__)) .'/core.php';
 
 function init($usersEntity) {
 
+	$config = Config::getInstance()->getConfigurations();
 	if(!$usersEntity->retrieveAndLink() && Settings::getModMode())
 	{
 		$values_conditions=array();
@@ -12,17 +13,17 @@ function init($usersEntity) {
 		/**
 		 * default User of the application
 		*/
-
+		
 		$GLOBALS['usersEntity']->insertItem(array(
-				"username" 	=> Config::getInstance()->getConfigurations()['defaultuser']['username'],
-				"password"	=> md5(Config::getInstance()->getConfigurations()['defaultuser']['password']),
-				"email"		=> Config::getInstance()->getConfigurations()['defaultuser']['email'],
-				"name"		=> Config::getInstance()->getConfigurations()['defaultuser']['name'],
-				"surname"	=> Config::getInstance()->getConfigurations()['defaultuser']['surname'])
+				"username" 	=> $config['defaultuser']['username'],
+				"password"	=> md5($config['defaultuser']['password']),
+				"email"		=> $config['defaultuser']['email'],
+				"name"		=> $config['defaultuser']['name'],
+				"surname"	=> $config['defaultuser']['surname'])
 		);
 
 		$GLOBALS['groupsEntity']->insertItem("1", "Administrator", "Administration Group.");
-		$GLOBALS['usersGroupsRelation']->insertItem(null,Config::getInstance()->getConfigurations()['defaultuser']['username'],"1");
+		$GLOBALS['usersGroupsRelation']->insertItem(null,$config['defaultuser']['username'],"1");
 
 		/**
 		 * System services category initialization

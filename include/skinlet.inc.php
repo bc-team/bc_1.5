@@ -29,7 +29,7 @@ Class Skinlet{
 
 	function get()
 	{
-		$this->smarty->assign("sys",TagLibrariesFactory::getInstance());
+		//$this->smarty->assign("sys",TagLibrariesFactory::getInstance());
 		return $this->smarty->fetch(Settings::getSkin()."/{$this->template_name}");
 	}
 }

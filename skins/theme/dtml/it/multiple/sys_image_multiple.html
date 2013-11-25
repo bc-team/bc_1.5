@@ -1,0 +1,23 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+MULTIPLE TEMPLATE STANDARD; <h1>sys_image</h1>{if $instances != null || $instance != null}
+<ul>
+{foreach from=$instances item=instance}
+<li>id: {$instance->id}</li>
+<li>owner: {$instance->owner}</li>
+<li>filename: {$instance->filename}</li>
+<li>data: {$instance->data}</li>
+<li>size: {$instance->size}</li>
+<li>filetype: {$instance->filetype}</li>
+<li>title: {$instance->title}</li>
+<li>caption: {$instance->caption}</li>
+<li>alt: {$instance->alt}</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_image</h1>
+{/if}
+<!-- MODIFICA QUESTELINEE-->
+
+</div>
+

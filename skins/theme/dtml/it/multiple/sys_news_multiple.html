@@ -1,0 +1,22 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+MULTIPLE TEMPLATE STANDARD; <h1>sys_news</h1>{if $instances != null || $instance != null}
+<ul>
+{foreach from=$instances item=instance}
+<li>id: {$instance->id}</li>
+<li>owner: {$instance->owner}</li>
+<li>title: {$instance->title}</li>
+<li>lastmod: {$instance->lastmod}</li>
+<li>creation: {$instance->creation}</li>
+<li>date: {$instance->date}</li>
+<li>active: {$instance->active}</li>
+<li>body: {$instance->body}</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_news</h1>
+{/if}
+<!-- MODIFICA QUESTELINEE-->
+
+</div>
+

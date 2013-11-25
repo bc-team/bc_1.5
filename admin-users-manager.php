@@ -62,7 +62,8 @@ Class UserForm extends Form {
 						1);
 			}
 
-			Parser::mail($_REQUEST['email'],"{Config::getInstance()->getConfigurations()['website']['name']} Login data", $mail->get(), Config::getInstance()->getConfigurations()['website']['email']);
+			$config = Config::getInstance()->getConfigurations();
+			Parser::mail($_REQUEST['email'],"{$config['website']['name']} Login data", $mail->get(), $config['website']['email']);
 		}
 	}
 }

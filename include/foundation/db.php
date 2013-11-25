@@ -127,9 +127,8 @@ Class DB {
 	
 	static function testConnection($host,$name,$user,$pass) {
 		$turnback=true;
-
 		$connection = mysql_pconnect($host,$user,$pass);
-
+		//$connection = mysql_pconnect('localhost', 'root', 'noris19611965');
 		if ($connection) {
 			$database=$connection;
 			if (mysql_select_db($name)) {

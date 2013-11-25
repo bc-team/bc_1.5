@@ -5,9 +5,10 @@ Class Message {
 	
 	public static function getInstance()
 	{
+	      $config = Config::getInstance()->getConfigurations();
 		if(!isset(self::$instance))
 		{
-			self::$instance=new Message(Config::getInstance()->getConfigurationsLanguage());
+			self::$instance=new Message($config['language']);
 		}
 		return self::$instance;
 	}

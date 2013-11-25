@@ -329,13 +329,13 @@ Class Auth {
 				}	
 			}
 		}
-		
+		$config = Config::getInstance()->getConfigurations();
 		if (!isset($_SESSION['registered-user'])) { 
 			$trovato = false;
 		
 			if (is_array($_SESSION['user']['services'])) {
 				foreach($_SESSION['user']['services'] as $k => $v) {
-					if($v['id_sys_group'] == Config::getInstance()->getConfigurations()['registered_usergroup']) {
+					if($v['id_sys_group'] == $config['registered_usergroup']) {
 				
 						$script = $_SERVER['HTTP_REFERER'];
 					
@@ -353,8 +353,6 @@ Class Auth {
 		////////////////////////////////////////////////////
 		
 		$_SESSION['user']['admin'] = false;
-		
-		$config = Config::getInstance()->getConfigurations();
 		if (is_array($_SESSION['user']['services'])) {
 			foreach($_SESSION['user']['services'] as $k => $v) {
 			

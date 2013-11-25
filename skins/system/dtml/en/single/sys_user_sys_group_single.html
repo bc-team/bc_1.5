@@ -1,0 +1,16 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_user_sys_group</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>username_sys_user: {$instance->username_sys_user}</li>
+<li>id_sys_group: {$instance->id_sys_group}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_user_sys_group</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

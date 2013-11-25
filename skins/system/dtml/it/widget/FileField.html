@@ -1,0 +1,11 @@
+<!-- File field widget -->
+<fieldset id="image-widget">
+    <div id="input-file">
+        <p>Scegli il file</p>
+        <input id="{$name}" type="file" name="{$name}" />
+        {if $value != null}
+        <input type="hidden" name="{$name}" value="{$value}" />
+        {/if}
+    </div>
+</fieldset>
+<div class="clear"></div>

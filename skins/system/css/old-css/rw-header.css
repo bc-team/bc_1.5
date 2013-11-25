@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+
+#header-wrapper {
+	width: 1200px;
+	margin: auto;
+}
+
+#header {
+	overflow: hidden;
+	height: 120px;
+}
+
+/** LOGO */
+#header #logo {
+	float: left;
+	width: 440px;
+	height: 120px;
+	background: url(images/logoDisimNoBack.png) no-repeat;
+}
+
+#header #logo h1,#logo p {
+	margin: 0px;
+	line-height: normal;
+	text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#header #logo h1 a {
+	display: block;
+	padding: 45px 0px 0px 0px;
+	letter-spacing: -2px;
+	font-weight: 400;
+	font-size: 40px;
+	color: #0C0C0C;
+}
+
+#header #logo p {
+	margin-top: -5px;
+	padding: 0px;
+	/*text-transform: uppercase;*/
+	font-size: 12px;
+	color: #7C7C7C;
+}
+
+#header #logo a {
+	text-decoration: none;
+	color: #7C7C7C;
+}

@@ -1,0 +1,18 @@
+<div id="liveReport">
+	
+<!-- MODIFICA QUESTA LINEA-->{if !$instances}
+<ul>
+{foreach from=$instances item=instance}
+<li>
+{$instance->username} : <a href="{$service_link}?action=emit&preload=1&value=\{$instance->username_sys_user}">Modifica</a>
+</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_user_sys_group</h1>
+{/if}
+
+<!-- MODIFICA QUESTA LINEA-->
+
+</div>
+

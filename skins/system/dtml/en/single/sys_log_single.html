@@ -1,0 +1,22 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_log</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>id: {$instance->id}</li>
+<li>operation: {$instance->operation}</li>
+<li>entity: {$instance->entity}</li>
+<li>itemid: {$instance->itemid}</li>
+<li>service: {$instance->service}</li>
+<li>username: {$instance->username}</li>
+<li>date: {$instance->date}</li>
+<li>ip: {$instance->ip}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_log</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

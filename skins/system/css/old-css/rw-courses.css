@@ -1,0 +1,45 @@
+@CHARSET "ISO-8859-1";
+
+#rw-courses-content{
+	font-size: 18px;
+}
+
+#rw-courses-content h1{
+	margin-top: 20px;
+	color: #035D7D;
+	font-size: 25px;
+}
+
+#rw-course-table{
+	padding: 0 20px 0 20px;
+	margin-bottom: 25px;
+	color: #8D8F90;
+}
+
+#rw-courses-content .rw-table-cell{
+	width: 20%;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+}
+
+#rw-courses-content .rw-course-table-cell-title{
+	width: 40%;
+	text-align: left;
+	padding: 0;
+}
+
+.rw-course-table-cell-period{
+	width: 20%;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+}
+
+.rw-course-link:HOVER{
+	background: #E5E5E6;  
+   -webkit-transition: background 1s ease-in;  
+   -moz-transition: background 1s ease-in;  
+   -o-transition: background 1s ease-in;  
+   transition: background 1s ease-in; 
+}

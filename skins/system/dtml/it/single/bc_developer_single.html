@@ -1,0 +1,23 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>bc_developer</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>id: {$instance->id}</li>
+<li>nome: {$instance->nome}</li>
+<li>cognome: {$instance->cognome}</li>
+<li>facebook: {$instance->facebook}</li>
+<li>twitter: {$instance->twitter}</li>
+<li>likedin: {$instance->likedin}</li>
+<li>ruolo: {$instance->ruolo}</li>
+<li>descrizione: {$instance->descrizione}</li>
+<li>foto: {$instance->foto}</li>
+</ul>
+{else}
+<h1>NON CI SONO bc_developer</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

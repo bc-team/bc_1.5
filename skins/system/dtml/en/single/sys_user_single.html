@@ -1,0 +1,23 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_user</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>username: {$instance->username}</li>
+<li>password: {$instance->password}</li>
+<li>email: {$instance->email}</li>
+<li>name: {$instance->name}</li>
+<li>surname: {$instance->surname}</li>
+<li>phone: {$instance->phone}</li>
+<li>active: {$instance->active}</li>
+<li>active_newsletter: {$instance->active_newsletter}</li>
+<li>processed: {$instance->processed}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_user</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+
+.rw-backend-wrapper{
+	background-color: rgba(23,104,160,0.85); 
+	/*background-color: #17689D;*/
+	border-radius: 10px 10px 10px 10px;
+	margin: 10px auto;
+	width: 1024px;
+	color: #F0F0F0;
+	box-shadow: 10px 10px 17px 2px #333446;
+}
+
+.rw-backend-wrapper .titleSection{
+	text-align: center;
+	font-size: 16px;
+	padding-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.rw-backend-wrapper .rw-td-label{
+	text-align: right;
+	padding: 15px;;
+	text-transform: lowercase;
+}
+
+.rw-backend-wrapper .rw-table-tr{
+	vertical-align: middle;
+}
+
+.rw-backend-wrapper .rw-backend-content-wrapper{
+	margin: 10px 20px 10px;
+	width: 784px;
+	float: left;
+}
+
+#rw-footer{
+	background-color: #373737;
+	border: none;
+}
+
+.rw-backend-content-wrapper #becontent FIELDSET LEGGEND {
+	color: #F0F0F0;
+}

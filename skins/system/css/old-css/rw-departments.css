@@ -1,0 +1,70 @@
+@CHARSET "ISO-8859-1";
+
+.rw-division-name{
+	font-size: 32px;
+	padding: 20px 0 20px 0;
+}
+
+#rw-division-table #rw-teacher-content{
+	padding-left: 20px;
+}
+
+
+#rw-division-table #rw-teacher-content #rw-teacher-title{
+	color: #aeb0b2;
+}
+
+
+
+
+.rw-dep-content-wrapper ul{
+	lis#t-style-image: none; 
+	list-style-image:none;
+  	list-style-type:none;
+  	list-style-position:none;
+}
+
+.rw-dep-li{
+	margin: 15px 0;
+	height: 20px;
+	/*background: transparent url('images/logoDisim.png') no-repeat scroll 0pt 2px;*/
+}
+
+.rw-section-h1-title{
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	color: #035D7D;
+}
+
+.rw-section-h2-title{
+	font-size: 36px;
+	font-weight: 400;
+	text-align: left;
+}
+
+.rw-dep-li a span{
+	height: 20px;
+	vertical-align: middle;
+}
+
+.rw-dep-li a span h4, .rw-dep-li a span h5  {
+	display: inline;
+	font-size: 20px;
+	color: #4F4F4F;
+}
+
+.rw-dep-li a h5{
+	font-size: 16px;
+}
+
+.rw-dep-li a{
+	text-decoration: none;
+	border: 0px;
+	vertical-align: middle;
+}
+
+.rw-dep-li a:HOVER {
+	border-bottom: 1px solid #035D7D;
+}

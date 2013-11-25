@@ -1,0 +1,237 @@
+<script>
+
+/* LIVE 3 */
+
+	function liveReport_compatibility() {
+		var live = document.getElementById('liveReport_searchbutton');
+		
+		live.className = live.className + '-ie';
+		live.onmousedown = liveReport_onclick;
+		live.onmouseup = liveReport_onclick;
+		
+	}
+	
+	function liveReport_onclick() {
+		var live = document.getElementById('liveReport_searchbutton');
+		
+		if (live.className == 'button-ie-active') {
+			live.className = 'button-ie';
+		} else {
+			live.className = 'button-ie-active';
+		}	
+	}
+	
+	
+	var http_request = false;
+	
+	function liveReport_prevPage() {
+		
+		var currentPage = document.getElementById("currentPage");
+		var page = parseInt(currentPage.value) - 1
+		liveReport_makeRequest(page, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'],document.forms['liveReport_search'])));
+		
+	}
+	
+	function liveReport_firstPage() {
+		
+		liveReport_makeRequest(1, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'],document.forms['liveReport_search'])));
+		
+	}
+	
+	function liveReport_nextPage() {
+		
+		var currentPage = document.getElementById("currentPage");
+		var page = parseInt(currentPage.value) + 1;
+	
+		liveReport_makeRequest(page, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'],document.forms['liveReport_search'])));
+		
+	}
+	
+	function liveReport_lastPage() {
+		
+		var length = <[length]>;
+		var total = <[total]>;
+		
+		var lastpage = Math.ceil(total/length);
+		
+		liveReport_makeRequest(lastpage, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'],document.forms['liveReport_search'])));
+	}
+	
+	function liveReport_makeRequest(currentpage, pagelength, totallength, form) {
+		
+		var loader = document.getElementById("loader_image");
+		loader.style.visibility = "visible";
+
+		totalpages = Math.ceil(totallength/pagelength);
+		
+		if (currentpage < 1) {
+			currentpage = 1;
+		} 
+		
+		if (currentpage > totalpages) {
+			currentpage = totalpages;
+		}
+		
+		
+			if (window.XMLHttpRequest) {
+    			http_request = new XMLHttpRequest();
+    			http_request_watch = true;
+    	
+	      		if (http_request.overrideMimeType) {
+	        		http_request.overrideMimeType('text/xml');
+	      		}
+	   		} else if (window.ActiveXObject) {
+	      		try {
+	        		http_request = new ActiveXObject("Msxml2.XMLHTTP");
+	        		http_request_watch = true;
+	      		} catch (e) {
+	        		try {
+	            		http_request = new ActiveXObject("Microsoft.XMLHTTP");
+	            		http_request_watch = true;
+	         		} catch (e) {}
+	      		}
+	   		}
+	   	
+			http_request.onreadystatechange = liveReport_manageResult;
+			
+			// alert("<[script]>?action=edit&page=0&mode=ajax&currentpage="+currentpage+"&pagelength="+pagelength+"&totallength="+totallength+"&form="+form);   
+			http_request.open("GET", "<[script]>?action=edit&page=0&mode=ajax&currentpage="+currentpage+"&pagelength="+pagelength+"&totallength="+totallength+"&form="+form+"&"+Math.random(123), true);
+			
+			http_request.send(null);
+	}
+	
+	
+	
+	function liveReport_manageResult() {
+		
+		if (http_request.readyState == 4) {
+			if (http_request.status == 200) {
+					
+				var result = http_request.responseText; 
+				var body = document.getElementById("liveReport_body");
+				var startIndex = document.getElementById("startIndex");
+				var endIndex = document.getElementById("endIndex");
+				var currentPage = document.getElementById("currentPage");
+				var totalPages = document.getElementById("totalPages");
+				var total = document.getElementById('total');
+				
+				var content = ajaxDecode(result);
+				
+				body.innerHTML = stripSlashes(content['content']);
+				startIndex.innerHTML = content['startIndex'];
+				endIndex.innerHTML = content['endIndex'];
+				currentPage.value = content['currentPage'];
+				
+				totalPages.innerHTML = content['totalPages'];
+				
+				total.innerHTML = content['totallength'];
+				
+				var first_page = document.getElementById('first-page');
+				var prev_page = document.getElementById('prev-page');
+				
+				if (content['currentPage'] == 1) {
+					first_page.className = "first-page-disabled";
+					first_page.onclick = "";
+					prev_page.className = "prev-page-disabled";
+					prev_page.onclick = "";
+				} else {
+					first_page.className = "first-page";
+					first_page.onclick = liveReport_firstPage;
+					prev_page.className = "prev-page";
+					prev_page.onclick = liveReport_prevPage;
+				}
+				
+				var last_page = document.getElementById('last-page');
+				var next_page = document.getElementById('next-page');
+				
+				if (content['currentPage'] == content['totalPages']) {
+					last_page.className = "last-page-disabled";
+					last_page.onclick = "";
+					next_page.className = "next-page-disabled";
+					next_page.onclick = "";
+				} else {
+					
+					last_page.className = "last-page";
+					last_page.onclick = liveReport_lastPage;
+					next_page.className = "next-page";	
+					next_page.onclick = liveReport_nextPage;
+				}
+			
+				var loader = document.getElementById("loader_image");
+				loader.style.visibility = "hidden";
+				
+			} else {
+				alert("Error!");
+			}
+		}
+		
+		
+		
+	}	
+	
+	function getCurrentPage() {
+		var currentPage = document.getElementById('currentPage');
+		
+		return currentPage.value;
+	}
+	
+	function liveReport_updateitem(value) {
+		var form = document.forms['item_'+value];
+		
+		var currentPage = document.getElementById("currentPage");
+		var page = parseInt(currentPage.value);
+
+		liveReport_makeRequest(page, <[length]>, <[total]>, ajaxEncode(formPrune(form,document.forms['liveReport_search'])));
+	}
+	
+</script>
+
+<div id="liveReport">
+	<div class="header"><[title]></div>
+	<div class="search">
+		<!-- SEARCH BEGIN -->
+		<form name="liveReport_search" onSubmit="liveReport_makeRequest(1, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport_search']))); return false;" >
+			<input type="hidden" name="operation" value="search">
+			<div class="searchfield">
+				Search: <input type="text" name="search" size="20" onChange="liveReport_makeRequest(1, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport_search'])));">
+			</div>
+			<div class="button" id="liveReport_searchbutton" onClick="liveReport_makeRequest(1, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport_search'])));">
+		<!-- SEARCH BEGIN -->
+			</div>
+		</form>	
+	</div>
+	<div class="body" id="liveReport_body">
+	
+		
+	</div>
+	<div class="bottom">
+		<div class="first-page" id="first-page"></div>
+		<div class="prev-page" id="prev-page"></div>
+		
+		<div class="separator"></div>
+		
+		<div class="pageselector"> 
+		
+			<form name="liveReport" onSubmit="liveReport_makeRequest(getCurrentPage(), <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport']))); return false;" onClick="liveReport_makeRequest(this.value, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'])));">
+		Page <input id="currentPage" name="pageselection" value="" onChange="liveReport_makeRequest(this.value, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'])));"/> of <span id="totalPages"></span>
+
+		
+			</form> 
+		</div>
+		
+		<div class="separator"></div>
+		
+		<div class="next-page" id="next-page"></div>
+		<div class="last-page" id="last-page"></div>
+		<div class="separator"></div>
+		
+		<div id="liveReport_loader"><img id="loader_image" src="img/beContent/loading.gif"></div>
+		
+		<div class="topic">Topics <span id="startIndex"></span> - <span id="endIndex"></span>&nbsp;of&nbsp;<span id="total"><[total]></span></div>
+	</div>
+</div>
+<!--[if IE]>  
+<script>liveReport_compatibility();</script>
+<![endif]-->
+<script>liveReport_makeRequest(1, <[length]>, <[total]>, ajaxEncode(formPrune(document.forms['liveReport'])));</script>
+		

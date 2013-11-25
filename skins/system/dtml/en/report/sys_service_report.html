@@ -1,0 +1,21 @@
+<h1 class="inl_blk mb15 mt15">Services Manager</h1>
+<a class="addLink" href="{$service_link}?action=emit" title="aggiungi un nuovo servizio">aggiungi</a>
+{if $instances != null || $instance != null}
+{foreach from=$instances item=instance}
+	<ul>
+		<li class="border_bm">
+			<h2>
+				{$instance->name}
+			</h2>
+			<h6 class="inl_blk mr10">
+				<a href="{$service_link}?action=emit&preload=1&value={$instance->id}" title="modifica il servizio">Modifica</a>
+			</h6>
+			<h6 class="inl_blk mr10">
+				<a href="{$service_link}?action=delete&value={$instance->id}" title="cancellazione rapida">Rimuovi</a>
+			</h6>
+		</li>
+	</ul>
+{/foreach}
+{else}
+	<h1>NON CI SONO Services</h1>
+{/if}

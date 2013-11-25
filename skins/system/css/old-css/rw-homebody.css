@@ -1,0 +1,64 @@
+@CHARSET "ISO-8859-1";
+
+/* IPHONE */
+@media screen and (min-width: 320px) {
+	#rw-home-wrapper {
+		padding-left: 20px;
+	}
+	
+	.rw-icon {
+		float: left;
+		margin-right: 5px;
+		width: 64px;
+		height: 64px;
+	}
+	.rw-title-course {
+		background: url(../img/title_corsi.png) center center no-repeat;
+	}
+	.rw-title-teacher {
+		background: url(../img/title_professor.png) center center no-repeat;
+	}
+	.rw-home-content h1 {
+		float: left;
+		margin-top: 16px;
+		font-size: 30px;
+	}
+}
+
+/**/
+@media screen and (min-width: 480px) {
+}
+
+/**/
+@media screen and (min-width: 603px) {
+}
+
+/**/
+@media screen and (min-width: 768px) {
+}
+
+/**/
+@media screen and (min-width: 966px) {
+}
+
+/**/
+@media screen and (min-width: 1024px) {
+	#rw-home-wrapper {
+		padding-left: 0px;
+	}
+	.rw-home-content {
+		
+	}
+	.rw-icon {
+		float: left;
+		margin-right: 5px;
+		width: 64px;
+		height: 64px;
+	}
+	.rw-title-course {
+		background: url(../img/title_corsi.png) center center no-repeat;
+	}
+	.rw-title-teacher {
+		background: url(../img/title_professor.png) center center no-repeat;
+	}
+}

@@ -1,0 +1,74 @@
+@CHARSET "ISO-8859-1";
+
+#menu {
+	float: left;
+	width: 200px;
+	margin-top: 0px;
+}
+
+
+#menu li {
+	list-style: none;
+	text-transform: uppercase;
+	line-height: 18px;
+	margin-bottom: 1px;
+	padding-left: 12px;
+	background-color: #ccccc8;
+	font-weight: bold;
+	width:200px
+}
+
+#menu li a {
+	display: normal;
+	color: #6C6C6C;
+	font-size: 0.9em;
+}
+
+#menu li:hover {
+	background-image: url(../img/skin/list-1.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#menu ul
+{
+	padding:0px 0px 0px 0px;
+}
+
+#menu a
+{
+	padding:0px 0px 0px 0px;
+}
+
+#menu ul ul {
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+	width: 180px;
+	padding-bottom: 3px;
+}
+
+#menu ul ul li {
+	background-color: #DDDDD8;
+    border-bottom: 0 none;
+    font-size: 10px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    width: 160px;
+    padding-right: 3px;
+}
+#menu ul ul li:hover {
+	background-image: none;
+	background-color: #f6f6f0;
+}
+#menu ul ul li a:hover {
+	color: #257c92;
+
+}
+
+#menu ul ul ul li {
+display: block;
+white-space: nowrap;
+padding-left: 15px;
+margin: 0em;}

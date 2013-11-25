@@ -1,0 +1,24 @@
+<div id="news">
+	<div class="title">
+		<img src="skins/handling/css/img/title_news.png" alt="sezione news"/>
+		<h3 class="ml10">
+			<a href="news.php">Notizie</a>
+		</h3>
+	</div>
+	{if ($instances != null) || ($instance != null)}
+		<div class="acc_holder acc_single" id="news_content">
+			{foreach from=$instances item=instance}
+				<a class="mt20" href="news.php?sys_news_id={$instance->id}">
+					<div class="accordion_title">
+						<span class="calendar">{$instance->date}</span>
+						<h4>{$instance->title}</h4>
+					</div>
+				</a>
+			{/foreach}
+		</div>
+	{else}
+		<div>
+			<h4>non ci sono news</h4>
+		</div>
+	{/if}
+</div>

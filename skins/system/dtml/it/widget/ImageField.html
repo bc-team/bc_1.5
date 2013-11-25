@@ -1,0 +1,205 @@
+<!-- Image field widget -->
+<fieldset id="image-widget">
+    <div id="input-file">
+        <p>Scegli il file</p>
+        <input id="file-input" type="file" name="{$name}" />
+    </div>
+
+    <div class="clear"></div>
+    <h3 id="photos_list" class=""> Altre foto caricate da te </h3>
+    <!-- <div id="{$formHash}_images_list" class="h150 mr20 right_align " ></div> -->
+    <div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
+      <div id="{$formHash}_images_list" class="scroll-content">
+      </div>
+      <div class="clear"></div>
+      <div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+        <div class="scroll-bar"></div>
+      </div>
+    </div>
+</fieldset>
+<div class="clear"></div>
+  <script>
+  $(function() {
+    //scrollpane parts
+    var scrollPane = $( ".scroll-pane" ),
+      scrollContent = $( ".scroll-content" );
+ 
+    //build slider
+    var scrollbar = $( ".scroll-bar" ).slider({
+      slide: function( event, ui ) {
+        if ( scrollContent.width() > scrollPane.width() ) {
+          scrollContent.css( "margin-left", Math.round(
+            ui.value / 100 * ( scrollPane.width() - scrollContent.width() )
+          ) + "px" );
+        } else {
+          scrollContent.css( "margin-left", 0 );
+        }
+      }
+    });
+ 
+    //append icon to handle
+    var handleHelper = scrollbar.find( ".ui-slider-handle" )
+    .mousedown(function() {
+      scrollbar.width( handleHelper.width() );
+    })
+    .mouseup(function() {
+      scrollbar.width( "100%" );
+    })
+    .attr("id","sliderBar")
+    .append( "<span class='ui-icon ui-icon-grip-dotted-vertical'></span>" )
+    .wrap( "<div class='ui-handle-helper-parent'></div>" ).parent();
+ 
+    //change overflow to hidden now that slider handles the scrolling
+    scrollPane.css( "overflow", "hidden" );
+ 
+    //size scrollbar and handle proportionally to scroll distance
+    function sizeScrollbar() {
+      var remainder = scrollContent.width() - scrollPane.width();
+      var proportion = remainder / scrollContent.width();
+      var handleSize = scrollPane.width() - ( proportion * scrollPane.width() );
+      scrollbar.find( ".ui-slider-handle" ).css({
+        width: handleSize,
+        "margin-left": -handleSize / 2
+      });
+      handleHelper.width( "" ).width( scrollbar.width() - handleSize );
+    }
+ 
+    //reset slider value based on scroll content position
+    function resetValue() {
+      var remainder = scrollPane.width() - scrollContent.width();
+      var leftVal = scrollContent.css( "margin-left" ) === "auto" ? 0 :
+        parseInt( scrollContent.css( "margin-left" ) );
+      var percentage = Math.round( leftVal / remainder * 100 );
+      scrollbar.slider( "value", percentage );
+    }
+ 
+    //if the slider is 100% and window gets larger, reveal content
+    function reflowContent() {
+        var showing = scrollContent.width() + parseInt( scrollContent.css( "margin-left" ), 10 );
+        var gap = scrollPane.width() - showing;
+        if ( gap > 0 ) {
+          scrollContent.css( "margin-left", parseInt( scrollContent.css( "margin-left" ), 10 ) + gap );
+        }
+    }
+ 
+    //change handle position on window resize
+    $( window ).resize(function() {
+      resetValue();
+      sizeScrollbar();
+      reflowContent();
+    });
+    //init scrollbar size
+    setTimeout( sizeScrollbar, 10 );//safari wants a timeout
+  });
+  </script>
+
+
+<script type="text/javascript">
+
+	function selectionImage(img_id){
+		console.log(img_id);
+			$("#"+img_id).click(function(){
+			});
+	}
+
+
+if (typeof window.is_array === 'undefined') {
+   	function is_array(input) {
+   		return typeof (input) == 'object' && (input instanceof Array);
+   	}
+}
+if (typeof window.retrieveImagesList === 'undefined')
+{
+	function retrieveImagesList(username)
+	{
+		//Preparing the jquery object 
+		var jqxhr = $.getJSON("ajax-manager.php", {
+			table : "sys_image",
+			owner : username,
+			mode: "onlyids" 
+		},
+		function(result)
+		{
+			//Retrieving the childs list dom element
+			var images_list = $("#{$formHash}_images_list");
+			//Cleaning the childs list
+			images_list.empty();
+			if (is_array(result)) {
+				for ( var i = 0; i < result.length; i++)
+				{
+					var jqxhr = $.getJSON("ajax-manager.php", {
+						table : "sys_image",
+						owner : username,
+						id : result[i] 
+					}, 
+					function(result)
+					{
+                        buildImage(images_list,result[0]);
+						selectionImage(result[0].id);
+					});
+				}
+			}
+			else
+			{
+				$("#photos_list").hide();
+			}
+		});
+	}
+}
+
+if (typeof window.buildImage === 'undefined')
+{
+
+	function buildImage(images_list,result)
+	{
+		var preloadedImageId={$preloadedImageId};
+
+        var div =
+			$('<div>')
+				.appendTo($("#{$formHash}_images_list"))
+				.addClass("preview-single-image-wrapper")
+				.hide();
+
+		var imgWrapper = $('<div/>')
+			.addClass("img_wrapper")
+			.appendTo(div);
+		var img = $('<img/>')
+			.attr({
+				'id': "image_" + result.id,
+				'src': "data:image/png;base64,"+result.data })
+			.appendTo(imgWrapper);
+
+		img_id.push(img);
+
+        checked="";
+		if(preloadedImageId == result.id)
+		{
+			checked="checked";
+		}
+		
+		var subdiv = $('<div/>').appendTo(div).addClass("img_selector");
+		
+		var radio = $("<input "+checked+" />")
+		.attr({
+			'type': "radio",
+			'value' : result.id, 
+			'name': "{$name}" })
+		.appendTo(subdiv);
+		
+		div.delay(800).fadeIn();
+	}
+}
+
+var img_id = new Array();
+
+$(document).ready(function()
+{
+	retrieveImagesList("{$loggedUsername}");
+});
+
+
+$("#file-input").bind("change", function(){
+    console.log(this.files[0].size);
+})
+
+</script>

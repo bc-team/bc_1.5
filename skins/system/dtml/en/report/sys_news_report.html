@@ -1,0 +1,25 @@
+ <h1 class="inl_blk mb15 mt15">News Manager</h1>
+ <a class="addLink tooltip" href="{$service_link}?action=emit" title="aggiungi una nuova news">aggiungi</a>
+{if $instances != null || $instance != null}
+<ul>
+	{foreach from=$instances item=news}
+		<li class="border_bm">
+			<h2>
+				{$news->title}
+			</h2>
+			<span>
+				<h6 class="inl_blk">
+					<a class="tooltip" href="{$service_link}?action=emit&value={$news->id}&preload=1" title="modifica la news">Modifica</a>
+				</h6>
+			</span>
+			<span>
+				<h6 class="inl_blk ml10">
+					<a class="tooltip" href="{$service_link}?action=delete&value={$news->id}&preload=1" title="elimina la news">Rimuovi</a>
+				</h6>
+			</span>
+		</li>
+	{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO news</h1>
+{/if}

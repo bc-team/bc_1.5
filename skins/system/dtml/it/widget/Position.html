@@ -1,0 +1,30 @@
+<!-- position widget -->
+<fieldset class="position" id="childs_list" class="ui-sortable">
+        {$instances}
+    </fieldset>
+    {$ids}
+
+<script type="text/javascript">
+    function refreshPositions(){
+        $("#childs_list div").each(function(i, el){
+            var childItem = el.children; // get all childs_list's children
+            var inputChildItem = childItem[1]; //get the input chids of parent
+            inputChildItem.value = (i+1); // set the value
+        });
+    }
+
+    $(document).ready(function() {
+        $("#childs_list").sortable({
+            stop:function(event,ui){
+                refreshPositions();
+            }
+        });
+        /*
+        refresh entry name on position widget
+         */
+        $(":text").focusout(function(){
+            $("#editing-item-name").empty().append($(this).val());
+        });
+    });
+
+</script>

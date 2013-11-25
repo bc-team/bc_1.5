@@ -1,0 +1,75 @@
+<article class="module width_3_quarter">
+    <header><h3 class="tabs_involved">Content Manager</h3>
+        <ul class="tabs">
+            <li class="active"><a href="#tab1">Men&ugrave;</a></li>
+            <li>
+                <a href="{$service_link}?action=emit">
+                    <img class="add_entities" src="skins/system/images/icn_plus.png" title="Aggiungi"/>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+    {if $instances != null || $instance != null}
+    <div class="tab_container">
+        <div id="tab1" class="tab_content" style="display: block;">
+            <table class="tablesorter" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="header"></th>
+                    <th class="header">Entry Name</th>
+                    <th class="header">Padre</th>
+                    <th class="header">Page Linked</th>
+                    <th class="header">Azione</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$instances item=instance}
+                   {if $instance->parent == null}
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>{$instance->entry}</td>
+                            <td>{$instance->parent->entry}</td>
+                            <td>{$instance->linked_page->title}</td>
+                            <td>
+                                <a href="{$service_link}?action=emit&preload=1&value={$instance->id}">
+                                    <img src="skins/system/images/icn_edit.png" title="Modifica" />
+                                </a>
+                                <a href="{$service_link}?action=delete&value={$instance->id}">
+                                    <img type="image" src="skins/system/images/icn_trash.png" title="Rimuovi">
+                                </a>
+                            </td>
+                        </tr>
+                        {if $instance->sys_menu != null}
+                            {foreach from=$instance->sys_menu item=child_menu}
+                                {if $child_menu->linked_page == 0}
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>{$child_menu->entry}</td>
+                                        <td>{$instance->parent->entry}</td>
+                                        <td>{$child_menu->linked_page->title}</td>
+                                        <td>
+                                            <a href="{$service_link}?action=emit&preload=1&value={$child_menu->id}">
+                                                <img src="skins/system/images/icn_edit.png" title="Modifica" />
+                                            </a>
+                                            <a href="{$service_link}?action=delete&value={$child_menu->id}">
+                                                <img type="image" src="skins/system/images/icn_trash.png" title="Rimuovi">
+                                            </a>
+                                        </td>
+                                    </tr>
+                            {else}
+                            {/if}
+                            {/foreach}
+                        {/if}
+                    {/if}
+                    <!-- END #main-menu -->
+                {/foreach}
+                </tbody>
+            </table>
+        </div><!-- end of #tab1 -->
+
+    </div><!-- end of .tab_container -->
+</article>
+{else}
+<h1>NON CI SONO servizi</h1>
+{/if}

@@ -1,0 +1,19 @@
+{if $instances != null || $instance != null}
+	<div class="page_heading no_tm mb20">
+		<h1 class="text_uppercase">{$instance->title}</h1>
+		<span class="flt_rgh news_date">{$instance->date}</span>
+	</div>
+	<article>
+		{$instance->body}
+	</article>
+	{if $instance->owner != null} 
+		<div class="flt_rgh font_It">{$instance->owner->name} {$instance->owner->surname}</div>
+	{else}
+		<div class="flt_rgh font_It">anonima</div>
+	{/if}
+{else}
+	<div class="accordion_title">
+		<h4>pagina in costruzione</h4>
+	</div>
+{/if}
+

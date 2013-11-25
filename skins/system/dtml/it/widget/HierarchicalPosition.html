@@ -1,0 +1,173 @@
+<script type="text/javascript">
+	
+	//Global variables
+	
+	var editingId= {$editing_id} ;
+	var oldText = $("#entry").val();
+	var first = true;
+	
+        //Function to recognize if the result is an array
+    if (typeof window.is_array === 'undefined') {
+            function is_array(input) {
+                return typeof (input) == 'object' && (input instanceof Array);
+            }
+    }
+
+	function updateEditingItem()
+	{
+		//Retrieving the childs list dom element
+		var childs_list = $("#childs_list").sortable();
+		
+		//Retrieving the ids list
+		var ids_list = $("#ids_list");
+		
+		$("#child_"+editingId).remove();
+		
+		if($("#mainEntry").val()!="")
+		{
+		
+			var child = document.createElement('div');
+	
+			child.id = "child_" + editingId;
+			child.className = "editing-item";
+			var spanItem = document.createElement("span");
+			spanItem.innerHTML = $("#mainEntry").val();
+			child.appendChild(spanItem);
+
+			var hiddenInput = document.createElement("input");
+			hiddenInput.name="position";
+			hiddenInput.hidden="hidden";
+			hiddenInput.value=$("#childs_list").children().size()+1;
+			
+			child.appendChild(hiddenInput);
+			childs_list.append(child);
+		}
+		refreshPositions();
+	}
+
+	function HierPositionRequestInstances(parent_name, entity_name) {
+		//Retrieving the select element from dom
+		var e = document.getElementById(parent_name);
+		
+		//Retrieving the actual selected option from select dom object
+		var parent_id = e.options[e.selectedIndex].value;
+		
+		//Preparing the jquery object 
+		var jqxhr = $.getJSON("ajax-manager.php", {
+			table : entity_name,
+			{$parent_name} : parent_id,
+			orderby : "position"
+		}, function(result) {
+
+			//Retrieving the childs list dom element
+			var childs_list = $("#childs_list").sortable();
+			
+			//Retrieving the ids list
+			var ids_list = $("#ids_list");
+
+			//Cleaning the childs list
+			childs_list.empty();
+
+			//Cleaning the ids list
+			ids_list.empty();
+
+			// If the result is an array start to construct hidden inputs in dom in childs_list
+			if (is_array(result)) {
+				for ( i = 0 ; i < result.length ; i++) {
+					
+					var child = document.createElement('div');
+
+					child.id = "child_" + result[i].id;
+					child.className = "child-item";
+
+					//imposing the entity presentation text in html of div
+					var spanItem = document.createElement("span");
+					spanItem.innerHTML = result[i].presentation;
+					child.appendChild(spanItem);
+					//appending child to childs_list
+					childs_list.append(child);
+
+					//a better hash must be added but surprisingly it works :-)
+					hash = "{$form_hash}_" + i.toString()
+							+ "aswanaganazaurraight";
+
+					var hiddenId = document.createElement('input');
+					//this mustn't be visible
+					//hiddenId.hidden = "false";
+					//imposing the input name
+					hiddenId.name = "{$entity_name}_"
+							+ result[i].keyFieldName + "_" + hash;
+
+					//appending child to childs_list
+					ids_list.append(hiddenId);
+					//imposing the input value
+					hiddenId.value = result[i].keyField;
+
+					var hiddenPosition = document.createElement('input');
+					//this mustn't be visible
+					hiddenPosition.hidden = "true";
+					//imposing the input name
+					hiddenPosition.name = "position_" + hash;
+
+					hiddenPosition.id = "position_" + hash;
+
+					//appending child to childs_list
+					child.appendChild(hiddenPosition);
+					//imposing the input value
+					hiddenPosition.value = i + 1;
+				}
+			}
+			
+			updateEditingItem();
+		});
+	}
+	
+	function refreshPositions(){
+		$("#childs_list div").each(function(i, el){ 
+			var childItem = el.children; // get all childs_list's children
+			var inputChildItem = childItem[1]; //get the input chids of parent
+			inputChildItem.value = (i+1); // set the value
+		});
+	}
+	
+	
+	$(document).ready(function(){
+        //Executes the function for first time in order to retrieve the actual selected
+        HierPositionRequestInstances('{$parent_name}', '{$entity_name}');
+
+
+        $("#{$parent_name}").change(function(){
+            HierPositionRequestInstances('{$parent_name}', '{$entity_name}')
+            }
+        );
+
+        $("#childs_list").sortable({
+            // is started after the sortable function is finished
+            stop: function(event, ui) {
+                refreshPositions();
+            }
+        });
+
+        $("#mainEntry").focusout(function(){
+            updateEditingItem();
+            $('.column').equalHeight();
+        });
+
+    });
+</script>
+<!-- hierarchical position widget-->
+<div class="">
+	<fieldset>
+        <label for="{$parent_name}">{$label}</label>
+	    <select class="" name="{$parent_name}" id="{$parent_name}">
+            <option value="0">Nessuna categoria</option>
+		    {$parents_list}
+	    </select>
+    </fieldset>
+	<div class="title-section-menu">
+		<span>{$entity_name} childs </span>
+		<!--img class="info_action tooltip" src="skins/handling/css/images/info.png" original-title="utilizza il drag and drop per ordinare gli elementi" alt="help"/-->
+	</div>
+	<fieldset id="childs_list"></fieldset>
+</div>
+<div id="ids_list" class="hidden">{$new_child}</div>

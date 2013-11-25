@@ -1,0 +1,136 @@
+/*
+DYNACSS 1.0 - Cascading Style Sheet Preprocessor
+(c) 2009 Giuseppe Della Penna
+using CSSTidy 1.3 - CSS Parser and Optimiser
+(c) 2005-2006 Florian Schmitz
+
+This stylesheet has been extracted from the original 'stile_didisim_2013.csstpl'
+using the following settings:
+* grafica = 1
+with compression scheme 'highest_compression'
+
+Creation date: 15/01/13 15:03
+*/
+i {
+	font-style: italic;
+}
+
+b {
+	font-weight: bold;
+}
+
+sup {
+	font-size: 80%;
+	vertical-align: super;
+}
+
+.headerbox {
+	margin-top: 40px;
+}
+
+.headerbox  .title {
+	height: 64px;
+	margin-top: 0px;
+	margin-bottom: 2px
+}
+
+.headerbox  h3 {
+	float: left;
+	margin-top: 20px;
+}
+
+.headerbox .icon {
+	float: left;
+	margin-right: 5px;
+	width: 64px;
+	height: 64px;
+}
+
+.headerbox  ul ul {
+	margin: 4px 0 5px 0;
+}
+
+.headerbox  ul ul li {
+	margin-bottom: 2px;
+}
+
+.title .title_calendar {
+	background: url(../img/title_calendar.png) center center no-repeat;
+}
+
+.title .title_lectures {
+	background: url(../img/title_lectures.png) center center no-repeat;
+}
+
+.title .title_professors {
+	background: url(../img/title_professors.png) center center no-repeat;
+}
+
+.title .title_exams {
+	background: url(../img/title_exams.png) center center no-repeat;
+}
+
+.title .title_news {
+	background: url(../img/title_news.png) center center no-repeat;
+}
+
+.title .title_resources {
+	background: url(../img/title_resources.png) center center no-repeat;
+}
+
+.title .title_updates {
+	background: url(../img/title_updates.png) center center no-repeat;
+}
+
+.title .title_polls {
+	background: url(../img/title_polls.png) center center no-repeat;
+}
+
+.meta_title {
+	padding: 0 12px 0 0;
+	border-right: 1px solid #ddd;
+}
+
+.offerta_item {
+	float: left;
+	width: 300px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.offerta_item .pic img {
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+
+.offerta_item  h5 a {
+	text-align: center;
+	font-size: 13px;
+	line-height: 16px;
+	margin: 0;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	color: #333;
+	padding: 8px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	background: #fcfcfc url('../img/grad_menu.png') top left repeat-x;
+	text-shadow: 0 1px 0 rgba(256, 256, 256, 0.8);
+	min-height: 3em;
+	display: block;
+}
+
+.offerta_item  h5 a:hover {
+	color: #222;
+	background-color: #e5e5e5;
+	text-shadow: 0 1px 0 rgba(256, 256, 256, 0.6);
+}

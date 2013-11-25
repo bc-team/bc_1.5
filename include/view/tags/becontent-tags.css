@@ -1,0 +1,41 @@
+.corner-leftup {
+	color: whitel;
+	background-image: url(img/beContent/corner-sx-up.png);
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.corner-leftdw {
+	background-image: url(img/beContent/corner-sx-down.png);
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+.corner-rightup {
+	background-image: url(img/beContent/corner-dx-up.png);
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+.corner-rightdw {
+	background-image: url(img/beContent/corner-dx-down.png);
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}

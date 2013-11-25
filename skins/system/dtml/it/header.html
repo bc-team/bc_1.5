@@ -1,0 +1,20 @@
+<header id="header">
+    <hgroup>
+        <h1 class="site_title">beContent Admin</h1>
+        {if $webApp != null}
+            <h2 class="section_title">{$webApp}</h2><div class="btn_view_site"><a href="index.php">View Site</a></div>
+        {else}
+            <h2 class="section_title">Dashboard</h2><div class="btn_view_site"><a href="index.php">View Site</a></div>
+        {/if}
+    </hgroup>
+</header> <!-- end of header bar -->
+<section id="secondary_bar">
+    <div class="user">
+        {if $instance->username != null}
+         <p>{$instance->username} (<a href="#"></a>)</p>
+         <a class="logout_user" href="logout.php" title="Logout">Logout</a>
+        {else}
+            <p></p>
+        {/if}
+    </div>
+</section>

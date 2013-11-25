@@ -1,0 +1,16 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+MULTIPLE TEMPLATE STANDARD; <h1>sys_service_sys_group</h1>{if $instances != null || $instance != null}
+<ul>
+{foreach from=$instances item=instance}
+<li>id_sys_service: {$instance->id_sys_service}</li>
+<li>id_sys_group: {$instance->id_sys_group}</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_service_sys_group</h1>
+{/if}
+<!-- MODIFICA QUESTELINEE-->
+
+</div>
+

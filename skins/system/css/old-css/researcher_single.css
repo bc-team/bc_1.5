@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+.rw-clear{
+	clear: both;
+}
+
+.rw-info-wrapper{
+	float: left;
+	width: 735px;
+}
+
+.rw-info-wrapper .rw-prof-photo{
+	float: left;
+	margin-right: 10px;
+	height: 100px;
+	width: 100px;
+}
+
+.rw-info-wrapper .rw-prof-personal-info{
+	float: right;
+	width: 624px;
+}
+
+ul{
+	height: 28px;
+}
+
+.rw-tabs{
+	margin-top: 20px;
+	box-shadow: 1px 2px 8px 3px #B2B2B2;
+}

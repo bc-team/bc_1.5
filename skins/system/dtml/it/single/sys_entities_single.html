@@ -1,0 +1,21 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+SINGLE TEMPLATE STANDARD; <h1>sys_entities</h1>
+{if $instances != null || $instance != null}
+<ul>
+<li>name: {$instance->name}</li>
+<li>content_name: {$instance->content_name}</li>
+<li>owner: {$instance->owner}</li>
+<li>forum: {$instance->forum}</li>
+<li>forum_moderator: {$instance->forum_moderator}</li>
+<li>moderator_group: {$instance->moderator_group}</li>
+<li>priviledged_group: {$instance->priviledged_group}</li>
+</ul>
+{else}
+<h1>NON CI SONO sys_entities</h1>
+{/if}
+
+<!-- MODIFICA QUESTE LINEE-->
+
+</div>
+

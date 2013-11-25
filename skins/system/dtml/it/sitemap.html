@@ -1,0 +1,46 @@
+<!-- Main Navigation -->
+	<div class="dark_menu sixteen columns" id="pippo">
+		<div id="menu" class="menu">
+			<ul>
+				<li><a href="index.php"> <span class="home_icon"></span>
+				</a></li>
+			</ul>
+			
+			<div class="rw-sitemap-group">
+					{foreach from=$instances item=instance}
+						{if $instance->link == $actual_script}
+							{if $instance->father != 0 and $instance->father != null}
+								<a class="tooltip rw-sitemap mr10"
+									href="{$instance->father->link}" title="{$instance->father->title}">
+									<span>
+										{$instance->father->title}
+									</span>
+								</a>
+							{/if}
+							<a class="tooltip rw-sitemap mr10" title="{$instance->title}">
+								<span>{$instance->title}</span>
+							</a>
+						{else}
+							{assign var="id" value=$instance->id}
+							{assign var="base_name" value="page.php?sys_page_id=$id"}
+							{if $base_name == $actual_script}
+								{if $instance->father != 0 and $instance->father != null}
+									<a class="tooltip rw-sitemap mr10"
+										href="{$instance->father->link}" title="{$instance->father->title}">
+										<span>
+											{$instance->father->title}
+										</span>
+									</a>
+								{/if}
+								<a class="tooltip rw-sitemap mr10" title="{$instance->title}">
+									<span>{$instance->title}</span>
+								</a>
+							{/if}
+						{/if}
+
+							
+					{/foreach}
+				</div>
+		</div>
+	</div>
+<!-- Main Navigation::END -->

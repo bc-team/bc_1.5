@@ -1,0 +1,17 @@
+<div id="liveReport">
+	<!-- MODIFICA QUESTE LINEE-->
+MULTIPLE TEMPLATE STANDARD; <h1>sys_slider_sys_page</h1>{if $instances != null || $instance != null}
+<ul>
+{foreach from=$instances item=instance}
+<li>id: {$instance->id}</li>
+<li>id_sys_slider: {$instance->id_sys_slider}</li>
+<li>id_sys_page: {$instance->id_sys_page}</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_slider_sys_page</h1>
+{/if}
+<!-- MODIFICA QUESTELINEE-->
+
+</div>
+

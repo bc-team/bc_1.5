@@ -1,0 +1,76 @@
+#administrationMenu {
+	width: 200px;
+	height: auto;
+	font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #777;
+	margin: 0 5px;
+	padding: 3px 0 0 5px;
+	!background: white url("img/beContent/bg_sidebar_200.gif") no-repeat;
+	float:left;
+	line-height: 10pt;
+}
+
+#administrationMenu A A:visited {
+	
+}
+
+
+
+#administrationMenu h1 {
+	margin-top: 10px;
+	padding: 5px 0 0px 10px; 
+	font: bold 0.9em Verdana, 'Trebuchet MS', Sans-serif;
+	color: #555;
+	
+}
+
+#administrationMenu ul {
+	
+	margin-left: 0;
+	list-style: none;
+	padding-left: 2px;
+	width: 100%px;
+}
+
+#administrationMenu ul li {
+	font-weight: bold;
+}
+
+#administrationMenu ul li A {
+	font-weight: bold;
+	color: #77B;
+	text-decoration: none;
+}
+
+#administrationMenu ul li A:hover {
+	text-decoration: underline;
+}
+
+#administrationMenu ul ul li {
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+#administrationMenu ul ul li A {
+	font-weight: normal;
+}
+
+
+#administrationMenuBottom {
+	width: 200px;
+	height: 9px;
+	margin: 0 5px;
+	/* background: white url("img/beContent/bg_sidebar_bottom_200.gif") no-repeat ; */
+	float: left;
+}
+
+#container #menu img {
+	border: 0;
+}
+
+#container #menu li a {
+	display: normal;
+	color: #6C6C6C;
+	font-size: 0.9em;
+}

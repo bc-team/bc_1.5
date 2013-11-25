@@ -1,0 +1,38 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+{$head}
+
+<body>
+	<div id="wrapper">
+		<div class="container">
+			<div class="header clearfix row" id="header_content">
+				{$header}
+			</div>
+			<!-- BAR MENU -->
+			<div class="row no_bm absolute-position" id="bar-menu">
+				{$sitemap}
+			</div>
+			<div class="row no_bm" id="bar-menu-hidden">&nbsp;</div>
+			
+			<div class="twoPfive columns sidebar mt20">
+				{$menu}
+			</div>
+			
+			<div class="thirteen columns omega ml20 mt20 mr20" id="content">
+				{$body}
+			</div>
+			
+			<!-- Footer -->
+			<div class="clearfix">&nbsp;</div>
+			<div id="footer" class="clearfix row near">
+				{$footer}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

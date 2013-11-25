@@ -1,0 +1,56 @@
+@CHARSET "ISO-8859-1";
+
+/* IPHONE */
+@media screen and (min-width: 320px) {
+	.slider-canvas {
+		display: none;
+	}
+}
+
+/**/
+@media screen and (min-width: 480px) {
+}
+
+/**/
+@media screen and (min-width: 603px) {
+}
+
+/**/
+@media screen and (min-width: 768px) {
+}
+
+/**/
+@media screen and (min-width: 966px) {}
+
+/**/
+@media screen and (min-width: 1024px) {
+	.slider-canvas {
+		display: inline-block;
+		width: 1200px;
+		min-height: 330px;
+		margin: 0px auto;
+	}
+	.banner {
+		overflow: hidden;
+		height: 330px;
+		margin: 0px auto;
+		background: #17689D;
+		position: absolute;
+	}
+	.banner .column1 {
+		float: left;
+		width: 348px;
+		padding: 100px 30px 20px 30px;
+		color: #FFFFFF;
+	}
+	.banner .column1 h2 {
+		padding: 0px 0px 20px 0px;
+		letter-spacing: -1px;
+		font-size: 30px;
+		font-weight: 400;
+	}
+	.banner .column2 {
+		float: left;
+		width: 792px;
+	}
+}

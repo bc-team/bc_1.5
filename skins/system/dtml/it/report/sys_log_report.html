@@ -1,0 +1,18 @@
+<div id="liveReport">
+	
+<!-- MODIFICA QUESTA LINEA-->{if !$instances}
+<ul>
+{foreach from=$instances item=instance}
+<li>
+{$instance->date} {$instance->entity} {$instance->operation} : <a href="{$service_link}?action=emit&preload=1&value=\{$instance->id}">Modifica</a>
+</li>
+{/foreach}
+</ul>
+{else}
+<h1>NON CI SONO sys_log</h1>
+{/if}
+
+<!-- MODIFICA QUESTA LINEA-->
+
+</div>
+

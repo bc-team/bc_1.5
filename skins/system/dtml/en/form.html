@@ -1,0 +1,12 @@
+<script type="text/javascript">
+function deleteThis(parameter)
+{
+	document.location.href = document.URL+"&action=delete&value={$value}"
+}
+</script>
+
+<form name="{$formName}" method="{$formMethod}" enctype="multipart/form-data" >
+	<input type="hidden" name="page" value="{$formPage}">
+	{$actionHeader}
+	{$content}
+	{$closing}

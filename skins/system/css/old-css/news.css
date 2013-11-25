@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+.rw-news-wrapper {
+	background: none repeat scroll 0 0 rgba(221,221,221,0.45);
+	box-shadow: 4px 5px 10px 0px #C3C3C3;
+	border: 1px solid #999998;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px 10px 10px 15px;
+	margin-top: 10px;
+	font-size: 9px;
+}
+
+.rw-news-wrapper:HOVER{
+	background-color: #F7DFF7;
+    -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+.rw-news-wrapper a{
+	text-decoration: none;
+}

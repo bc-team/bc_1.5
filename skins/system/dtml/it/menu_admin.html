@@ -1,0 +1,62 @@
+{literal}<form class="quick_search">
+    <input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+</form>  {/literal}
+<hr>
+<div id="menu-admin-wrapper">
+    {foreach from=$instances item=category}
+        <h3>{$category->name} <a href="#" class="toggleLink">Hide</a></h3>
+        <ul class="toggle">
+            {foreach from=$category->sys_service item=service}
+                {if $service->name == 'User Management'}
+                    <li class="icn_view_users">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'News'}
+                    <li class="icn_new_article">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Image'}
+                    <li class="icn_photo">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Menu Management'}
+                    <li class="icn_categories">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Slider'}
+                    <li class="icn_slider">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Group Management'}
+                    <li class="icn_folder">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Page Management'}
+                    <li class="icn_page">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Service Management'}
+                    <li class="icn_settings">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Service Category Management'}
+                    <li class="icn_settings">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else if $service->name == 'Admin Room'}
+                    <li class="icn_bed">
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {else}
+                    <li>
+                        <a href="{$service->script}?action=report">{$service->entry} </a>
+                    </li>
+                {/if}
+            {/foreach}
+        </ul>
+    {/foreach}
+</div>
+<footer>
+    <hr />
+        {$footer}
+</footer>

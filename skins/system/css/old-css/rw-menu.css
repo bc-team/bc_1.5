@@ -1,0 +1,87 @@
+@CHARSET "ISO-8859-1";
+
+/* IPHONE */
+@media screen and (min-width: 320px) {}
+
+/**/
+@media screen and (min-width: 480px) {
+}
+
+/**/
+@media screen and (min-width: 603px) {
+}
+
+/**/
+@media screen and (min-width: 768px) {
+}
+
+/*NEXUS 7 LANDSCAPE*/
+@media screen and (min-width: 966px) {
+	#rw-menu-wrapper {
+		background: url(../img/main-wrapper.png) repeat;
+		height: 40px;
+		margin: 10px auto 10px;
+		width: 100%;
+	}
+	#rw-menu-wrapper #rw-public-menu{
+		padding-left: 20px;
+	}
+	#rw-menu-wrapper #rw-public-menu ul {
+		margin: 0px;
+		padding: 0px 0px 0px 0px;
+		list-style: none;
+		line-height: normal;
+	}
+	#rw-menu-wrapper #rw-public-menu li {
+		float: left;
+		height: 34px;
+		margin: 2px 28px 0 0;
+	}
+	#rw-menu-wrapper #rw-public-menu a {
+		text-decoration: none;
+		color: #ffffff;
+	}
+	#rw-menu-wrapper #rw-public-menu a span {
+		margin-bottom: 0px;
+		display: table-cell;
+		height: 34px;
+		min-width: 100px;
+		padding: 0px 5px;
+		margin-right: 5px;
+		vertical-align: middle;
+		color: #ffffff;
+		font-size: 1.5em;
+		text-align: center;
+	}
+	#rw-menu-wrapper #rw-public-menu a:hover {
+		text-decoration: underline;
+		border-bottom: 1px solid #ffffff;
+	}
+	#rw-menu-wrapper #rw-public-menu .active {
+		letter-spacing: 1px;
+		border: 1px solid #3B98D4;
+		border-radius: 5px;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 400;
+		color: #FFFFFF;
+		box-shadow: inset 1px 1px 1px #064670;
+		background: #035d7d;
+	}
+}
+
+/*IPAD LANDSCAPE ---- DESKTOP*/
+@media screen and (min-width: 1024px) {
+	#rw-menu-wrapper {
+		background: url(../img/main-wrapper.png) repeat;
+		height: 40px;
+		margin: 10px auto 10px;
+		width: 100%;
+	}
+	#rw-menu-wrapper #rw-public-menu {
+		height: 40px;
+		width: 1200px;
+		margin: auto;
+		text-transform: lowercase;
+	}
+}

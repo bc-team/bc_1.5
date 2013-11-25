@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+{$head}
+
+<body>
+	<div id="wrapper">
+		<div class="container">
+			<div class="header clearfix row" id="header_content">
+				{$header}
+			</div>
+			<!-- BAR MENU -->
+			<div class="row no_bm absolute-position" id="bar-menu">
+				{$sitemap}
+			</div>
+			<div class="row no_bm" id="bar-menu-hidden">&nbsp;</div>
+			
+			<div class="twoPfive columns sidebar mt10" id="sidebar-left">
+				{$TagLibrariesFactory->doTag("menu","front")}</div>
+
+			<div class="clearfix">&nbsp;</div>
+			<div class="twoPfive columns sidebar mt10" id="sidebar-left">
+				{$TagLibrariesFactory->doTag("menu","back")}</div>
+			
+			<div class="twoPfive columns mt10 sidebar alpha" id="sidebar-left-hidden">&nbsp;</div>
+			<!-- Content Column -->
+			
+			<div class="ninePfive columns omega ml10 mt10 mr20" id="content">
+				{$body}
+			</div>
+			
+			<div class="four columns omega mt10 ml10" id="sidebar-right">
+				<!-- Side Right Column -->
+				{$news}
+			</div>
+			
+			<div class="four columns mt10 omega" id="sidebar-right-hidden">&nbsp;</div>
+			
+			<!-- Footer -->
+			<div class="clearfix">&nbsp;</div>
+			<div id="footer" class="clearfix row near mt20">
+				{$footer}
+			</div>
+		
+		</div>
+	</div>
+</body>

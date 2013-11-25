@@ -1,0 +1,14 @@
+<div id="menu_admin">
+	<div id="sidemenu">
+	{foreach from=$instances item=category}
+		<h3> {$category->name}</h3>
+		<ul id="sub-menu">
+			{foreach from=$category->sys_service item=service}
+				<li>
+					<a href="{$service->script}?action=report">{$service->entry} </a>
+				</li>
+			{/foreach}
+		</ul>
+	{/foreach}
+	</div>
+</div>

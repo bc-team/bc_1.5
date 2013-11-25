@@ -1,0 +1,18 @@
+<div id="liveReport">
+
+	<!-- MODIFICA QUESTA LINEA-->
+	{if $instances != null || $instance != null}
+	<h2 class="inl_blk mb15 mt15">Notizie</h2>
+	<ul>
+		{foreach from=$instances item=instance}
+		<li class="border_bm"><a class="tooltip"
+			title="visualizza {$instance->nome}"
+			href="{$script_link}{$instance->id}">{$instance->title}
+				{$instance->active} </a></li>{/foreach}
+	</ul>
+	{/if}
+
+	<!-- MODIFICA QUESTA LINEA-->
+
+</div>
+

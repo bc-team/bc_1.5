@@ -1,0 +1,34 @@
+<!-- Lat Long widget-->
+<input class="" id="input_{$name}" type="hidden" name="{$name}" value="{$value}" />
+<span class="">&nbsp;</span>
+<div id="">
+   <label class="" title="clicca per selezionare/desselezionare">
+   	  <input id="check_{$name}" class="mt7 flt_lft" type="checkbox" {$checked}/>
+      <span id="label_{$name}">{$label}</span>
+   </label>
+</div>
+<div class="clear">&nbsp;</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#label_{$name}").click(function() {
+			if ($("#input_{$name}").attr("value") == "*") {
+				$("#input_{$name}").attr("value", "");
+			} else {
+				$("#input_{$name}").attr("value", "*");
+			}
+		});
+		
+		$("#check_{$name}").click(function() {
+ 			if( ( $("#input_{$name}").attr("value") == "*") ) {
+				$("#input_{$name}").attr("value", "");
+			} else {
+				$("#input_{$name}").attr("value", "*");
+			}
+		});
+		
+		/* $('#input_active').click(function(ev){
+			console.log(ev.isImmediatePropagationStopped());
+			}); */
+	});
+</script>

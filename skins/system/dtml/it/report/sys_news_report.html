@@ -1,0 +1,45 @@
+<article class="module width_3_quarter">
+    <header><h3 class="tabs_involved">Content Manager</h3>
+        <ul class="tabs">
+            <li class="active"><a href="#tab1">News</a></li>
+            <li>
+                <a href="{$service_link}?action=emit">
+                    <img class="add_entities" src="skins/system/images/icn_plus.png" title="Aggiungi"/>
+                </a>
+            </li>
+        </ul>
+    </header>
+    {if $instances != null || $instance != null}
+    <div class="tab_container">
+        <div id="tab1" class="tab_content" style="display: block;">
+            <table class="tablesorter" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="header"></th>
+                    <th class="header">Titolo</th>
+                    <th class="header">Autore</th>
+                    <th class="header">Data</th>
+                    <th class="header">Azione</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$instances item=instance}
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>{$instance->title}</td>
+                    <td>{$instance->owner->username}</td>
+                    <td>{$instance->date}</td>
+                    <td>
+                        <a href="{$service_link}?action=emit&preload=1&value={$instance->id}" title="Modifica"><img src="skins/system/images/icn_edit.png" alt="modifica elemento"/> </a>
+                        <a href="{$service_link}?action=delete&value={$instance->id}" title="Rimuovi"><img src="skins/system/images/icn_trash.png" alt="elimina elemento"/> </a>
+                    </td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div><!-- end of #tab1 -->
+    </div><!-- end of .tab_container -->
+    {else}
+    <h1>NON CI SONO {$instance->name}</h1>
+    {/if}
+</article>

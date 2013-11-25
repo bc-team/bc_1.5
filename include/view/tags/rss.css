@@ -1,0 +1,20 @@
+div.rss {
+	margin: 5px 0 0 0;
+	padding: 15px 5px 5px 15px;
+	background: #fefefe url("img/rss/bg_rss.gif") top left no-repeat;
+	/* background: url(../img/logo.jpg) 13px 0% no-repeat; */
+}
+
+div.rss-bottom {
+	height: 9px;
+	background: #fefefe url("img/rss/bg_rss_bottom.gif") bottom left no-repeat;	
+}
+
+div.rss img {
+	float: right;
+	border: 0px;
+}
+
+div.rss a {
+	border: 0px;
+}

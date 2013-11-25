@@ -1,0 +1,35 @@
+<div class="installer-wrapper">
+    <form  action="installer.php" method="POST">
+	<div>
+		<p>Di seguito puoi inserire i dettagli di connessione al database.
+			Se non sei sicuro dei dati da inserire contatta il tuo fornitore di
+			hosting.</p>
+	</div>
+	<fieldset>
+		<label ><strong>Username
+			Mysql</strong></label> <input  type="text" name="usernameMysql" />
+	</fieldset>
+	<fieldset>
+		<label ><strong>Password
+			Mysql</strong></label> <input  type="password" name="passwordMysql" />
+	</fieldset>
+	<fieldset>
+		<label><strong>Nome
+			Database</strong> </label> <input  type="text" name="database" /> 
+			<small class="line_height30 w100_100 ml20 text"><strong>Attenzione</strong>:	il database deve gi&agrave; esistere</small>
+	</fieldset>
+	<fieldset>
+		<label ><strong>Host
+			Mysql</strong></label> <input  type="text" name="host" />
+	</fieldset>
+	<fieldset>
+		<label ><strong>Prefisso tabelle</strong></label> 
+		<input  type="text" name="prefix" />
+	</fieldset>
+	<div>
+		<label>&nbsp;</label>
+		<input type="hidden" name="InstallerState_2" value="InstallerState_2" />
+		<input type="submit" value="Continua" />
+	</div>
+</form>
+</div>

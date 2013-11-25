@@ -1,0 +1,14 @@
+<div id="ajax-report">
+<[foreach]>
+	<div class="row">
+		<div class="owner">
+			<[lastmodified]><br />
+			<[owner]>
+		</div>
+		<div class="item">
+			<a href="<[script]>?action=edit&page=1&value=<[value]>&primarykey=<[primarykey]>"><[text]></a><br />
+			<span class="info"><[primarykey]>: <[value]></span>
+		</div>
+	</div><hr>
+<[/foreach]>
+</div>

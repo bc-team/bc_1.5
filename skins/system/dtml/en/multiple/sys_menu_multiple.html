@@ -1,0 +1,29 @@
+<div id="menu1">
+	<h3 class="home_link ui-state-hover text_capitalize ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons">
+		<span class="menu_icon icon flt_lft ml2"></span> <a
+			href="index.php" class="flt_lft ml6  font_bold font_12">Home</a>
+	</h3>
+	<div class="clear">&nbsp;</div>
+	{if $instances != null || $instance != null}
+	<div id="sidemenu">
+		{foreach from=$instances item=menu} {if $menu->parent == null &&
+		$menu->link != "index.php"}
+		<h3 class="text_capitalize">
+			<a href="{$menu->link}">{$menu->entry}</a>
+		</h3>
+		<ul>
+			{foreach from=$menu->sys_menu item=child_menu}
+			{if $child_menu->linked_page == 0}
+			<li class="text_capitalize"><a href="{$child_menu->link}">{$child_menu->entry}
+			</a></li> 
+			{else}
+						<li class="text_capitalize"><a href="page.php?sys_page_id={$child_menu->linked_page}">{$child_menu->entry}
+			</a></li> 
+			{/if}
+			{/foreach}
+		</ul>
+		{/if} {/foreach}
+	</div>
+	{else}
+	{/if}
+</div>

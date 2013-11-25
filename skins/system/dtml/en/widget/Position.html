@@ -1,0 +1,29 @@
+<td valign="TOP">{$label}</td>
+<td><br>
+	<div class="becontent position" id="childs_list" class="ui-sortable"
+		size=8>{$instances} </div> {$ids}
+		
+		 
+		 
+		 
+		 <script type="text/javascript">
+			function refreshPositions(){
+				$("#childs_list div").each(function(i, el){ 
+					var childItem = el.children; // get all childs_list's children
+					var inputChildItem = childItem[1]; //get the input chids of parent
+					inputChildItem.value = (i+1); // set the value
+				});
+			}	
+		 
+		 $(document).ready(function() {
+				$("#childs_list").sortable({
+					stop:function(event,ui){
+						refreshPositions();
+					}
+				});
+			}
+
+			)
+			
+			
+</script>

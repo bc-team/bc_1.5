@@ -92,10 +92,16 @@ class CreateTemplate {
 		if($multiple) $fieldsEntity .= "{foreach from=\$instances item=instance}\n";
 		foreach($entity->fields as $field)
 		{
+
 			$fieldsEntity .="<li>";
 			$fieldsEntity .= "{$field->name}: ";
 			$fieldsEntity .= "{";
-			$fieldsEntity .= "\$instance->".$field->name;
+			if($field->reference == null){
+				$fieldsEntity .= "\$instance->".$field->name;
+			}
+			else{
+				$fieldsEntity .= "\$instance->".$field->name."->presentation";
+			}
 			$fieldsEntity .= "}";
 			$fieldsEntity .="</li>\n";
 		}

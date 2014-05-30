@@ -4,7 +4,7 @@ SINGLE TEMPLATE STANDARD; <h1>sys_news</h1>
 {if $instances != null || $instance != null}
 <ul>
 <li>id: {$instance->id}</li>
-<li>owner: {$instance->owner}</li>
+<li>owner: {$instance->owner->presentation}</li>
 <li>title: {$instance->title}</li>
 <li>lastmod: {$instance->lastmod}</li>
 <li>creation: {$instance->creation}</li>

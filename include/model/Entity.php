@@ -104,8 +104,8 @@ class Entity {
 	 */
 	public function save($query_conditions)
     {
-		$uniqueIdForNames=md5(microtime());
-		$uniqueIdForValues=md5(microtime());
+		$uniqueIdForNames=md5(uniqid(mt_rand()));
+		$uniqueIdForValues=md5(uniqid(mt_rand()));
 		$query="INSERT INTO {$this->name}";
 		$field_names_subquery=" ("; // parameters list
 		$field_values_subquery=" VALUES ("; // values list
@@ -514,7 +514,7 @@ class Entity {
 		{
 			$postfix;
 			$where_clause="";
-			$uniqueId=uniqid(time());
+			$uniqueId=md5(uniqid(mt_rand()));
 			if(sizeof($where_conditions)>0)
 			{
 				/**
@@ -581,7 +581,7 @@ class Entity {
 	 * @ParamType join_entities
 	 */
 	private function selectGenerator($join_entities=null) {
-		$id = uniqid(time());
+		$id = md5(uniqid(mt_rand()));
 		$select_clause="";
 		$notChecked=false;
 		foreach($this->fields as $k=>$value)
@@ -624,7 +624,7 @@ class Entity {
      *
 	 */
 	private function orderGenerator($order_conditions,$join_entities) {
-		$id = uniqid(time());
+		$id = md5(uniqid(mt_rand()));
 		$order_clause = "";
 
         if($this->debugmode){
@@ -827,7 +827,7 @@ class Entity {
 		$set_clause="";
 		$where_clause="";
 		$set_check=false;
-		$setId = md5(microtime());
+		$setId = md5(uniqid(mt_rand()));
 		foreach($set_parameters as $k=>$v)
 		{
 			if($this->existsField($k))
@@ -836,7 +836,7 @@ class Entity {
 				$set_check=true;
 			}
 		}
-		$whereId=md5(microtime());
+		$whereId= md5(uniqid(mt_rand()));
 		$where_check=false;
 		foreach($where_conditions as $k=>$v)
 		{
@@ -879,7 +879,7 @@ class Entity {
 		$query="DELETE FROM {$this->name}";
 
 		$where_clause="";
-		$whereId=md5(microtime());
+		$whereId=md5(uniqid(mt_rand()));
 		$where_check=false;
 		foreach($where_conditions as $k=>$v)
 		{
@@ -1380,8 +1380,8 @@ class Entity {
 		if($this->debugmode)
 			echo "<br> Entity::getPresentation for {$this->name} instance";
 
-		$id1 = md5(microtime());
-		$id2 = md5(microtime());
+		$id1 = md5(uniqid(mt_rand()));
+		$id2 = md5(uniqid(mt_rand()));
 		$fields = "";
 		$fieldsToConcat = "";
 
@@ -1429,7 +1429,7 @@ class Entity {
 		/**
 		 * called only from logs
 		 */
-		$id = md5(uniqid(time()));
+		$id = md5(uniqid(mt_rand()));
 		$query = "INSERT INTO {$this->name} VALUES(";
 		$args = func_get_args();
 		if (is_array($args[0])) {

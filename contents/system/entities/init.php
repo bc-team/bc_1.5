@@ -2,7 +2,9 @@
 require_once realpath(dirname(__FILE__)) .'/core.php'; 
 
 
-
+/**
+	This function works only if beContent is not installed correctly
+**/
 function init($usersEntity) {
 
 	$config = Config::getInstance()->getConfigurations();

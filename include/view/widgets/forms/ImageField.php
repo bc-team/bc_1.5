@@ -28,6 +28,7 @@ class ImageField extends FormWidget {
                 var_dump($preloadedId);
             }
 		}
+			
 		$key = $this->form->formHash;
 		$widget = new Skinlet("widget/ImageField");
 		$widget->setContent("label", $this->label);

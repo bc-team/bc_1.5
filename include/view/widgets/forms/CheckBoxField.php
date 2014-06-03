@@ -18,6 +18,7 @@ class CheckBoxField extends FormWidget {
 
 		$value="";
 		$checked="";
+		$mandatory="";
 		
 		if($this->form->entity->loaded && $preload)
 		{
@@ -28,11 +29,16 @@ class CheckBoxField extends FormWidget {
 				$checked="checked";
 			}
 		}
+
+		if ($this->mandatory==MANDATORY) {
+			$mandatory = 'required';
+		} 		
 		
 		$widget = new Skinlet("widget/CheckBox");
 		$widget->setContent("label", $this->label);
 		$widget->setContent("name",$this->name);
 		$widget->setContent("value",$value);
+		$widget->setContent("mandatory", $mandatory);
 		$widget->setContent("checked",$checked);
 		
 		return $widget->get();

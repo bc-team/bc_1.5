@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 $(window).resize(function(){
     var viewport = $(window).height();
-    console.log(viewport);
+    
     if(viewport > $("aside#sidebar").height()){
         $(".column").css("min-height",viewport);
     }
@@ -37,7 +37,7 @@ $(window).resize(function(){
 
 $(document).ready(function(){
     var viewport = $(window).height();
-    console.log(viewport);
+    
     if(viewport > $("aside#sidebar").height()){
         $(".column").css("min-height",viewport);
     }

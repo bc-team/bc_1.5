@@ -22,23 +22,21 @@ class TextField extends FormWidget {
 	 */
 	public function build($preload) {
 		
-		$content="";
+		$mandatory="";
 		/**
 		 * Mandatory text
 		 */
 		if ($this->mandatory==MANDATORY) {
-			$mandatory = 'Obbligatorio';
-		} 
-		else {
-			$mandatory = "";
-		}
+			$mandatory = 'required';
+		} 		
 		
 		if ($this->mainEntry == true)
 		{
 			$id="mainEntry";	
 		}
-		else
+		else{
 			$id=$this->name;
+		}
 
 		/**
 		 * Max length of text
@@ -46,8 +44,9 @@ class TextField extends FormWidget {
 		if ($this->maxlength != null){
 			$maxLength = 'maxlength="'.$this->maxlength.'"';
 		}
-		else
+		else{
 			$maxLength="";
+		}
 
 		/**
 		 * See definition of $loaded attribute in entity.inc.php, it defines if data was correctly retrieved from db
@@ -72,9 +71,6 @@ class TextField extends FormWidget {
 		$widget->setContent("type", $this->type);
 		$widget->setContent("value", $value);
 		$widget->setContent("id", $id);
-// 		$content .= '<label class="flt_lft">'.$this->label.'</label>';
-// 		$content .= '<input class="mb20" type="'.$this->type.'" value="'.$value.'" id="'.$id.'" name="'.$this->name.'" size="'.$this->size.'" maxlength="'.$this->maxlength.'" />';
-// 		$content .= '<h6 class="ml15 inl_blk">'.$mandatory.'</h6>';
 
 		return $widget->get();
 	}
